@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-    Componente Fabrica: el UNICO lugar que conoce las clases concretas.
-    Hito 2A: solo conoce al mock (FachadaSalaMock).
+    Componente Fabrica: el UNICO lugar que conoce las clases concretas
+    (FachadaSalaMock y FachadaSala). Las vistas y el controlador nunca las nombran.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -24,6 +24,11 @@
         <dependency>
             <groupId>itson.parchis</groupId>
             <artifactId>SalaMock</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>itson.parchis</groupId>
+            <artifactId>Sala</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>

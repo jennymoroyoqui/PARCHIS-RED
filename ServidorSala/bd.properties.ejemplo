@@ -1,0 +1,5 @@
+# COPIA este archivo como "bd.properties" (en esta misma carpeta) y pon tus datos.
+# bd.properties esta en .gitignore: NO se sube a GitHub (asi no se sube la contrasena).
+url=jdbc:mysql://localhost:3306/parchis
+usuario=root
+contrasena=ESCRIBE_AQUI_TU_CONTRASENA

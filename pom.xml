@@ -23,6 +23,10 @@
         <module>SalaMock</module>
         <module>Fabrica</module>
         <module>Presentacion</module>
+        <!-- Parte 3: estilo Message Broker y subsistema Sala real (en red) -->
+        <module>Broker</module>
+        <module>Sala</module>
+        <module>ServidorSala</module>
     </modules>
 
     <properties>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Componente ServidorSala: corre en la computadora 1 (junto al broker).
+    Guarda la sala "oficial", aplica las reglas (A2, A3, A4) y guarda el perfil en MySQL.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>itson.parchis</groupId>
+        <artifactId>parchis-red</artifactId>
+        <version>1.0</version>
+    </parent>
+    <artifactId>ServidorSala</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <exec.mainClass>parchis.servidorsala.MainServidorSala</exec.mainClass>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>itson.parchis</groupId>
+            <artifactId>InterfacesSala</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>itson.parchis</groupId>
+            <artifactId>Broker</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>itson.parchis</groupId>
+            <artifactId>Persistencia</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+</project>
