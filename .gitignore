@@ -1,0 +1,12 @@
+# Lo que genera Maven al compilar
+target/
+
+# Contrasena de MySQL: NUNCA se sube a GitHub (se sube bd.properties.ejemplo)
+bd.properties
+
+# Archivos personales de NetBeans / otros IDEs
+nb-configuration.xml
+nbactions.xml
+.idea/
+*.iml
+.vscode/

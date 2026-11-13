@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Proyecto padre del Parchis en red (Unidad II).
+    Cada <module> es un COMPONENTE del diagrama de componentes y tiene el mismo nombre.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>itson.parchis</groupId>
+    <artifactId>parchis-red</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <name>Parchis en red</name>
+
+    <modules>
+        <!-- Parte 1: contratos que comparten todos y la base de datos -->
+        <module>DTOs</module>
+        <module>InterfacesSala</module>
+        <module>Persistencia</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>
