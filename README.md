@@ -89,4 +89,3 @@ Computadora 2: correr `PrototipoMensaje` y escribir la IP de la computadora 1. L
 
 * [docs/01-estilo-message-broker.md](docs/01-estilo-message-broker.md): justificación del estilo con los escenarios de calidad.
 * [docs/02-diseno.md](docs/02-diseno.md): CU-01, capas, componentes, DTOs, pantallas y qué dibujar en StarUML.
-* [docs/03-casos-de-prueba.md](docs/03-casos-de-prueba.md): un caso de prueba por flujo, para pasar a Word con capturas.
