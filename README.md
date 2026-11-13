@@ -1,8 +1,8 @@
-# Parchís en red — Unidad II (Equipo 5, estilo Message Broker)
+Parchís en red
 
-Arquitectura de Software · ITSON · Prof. Manuel Alejandro Quintana García
+Arquitectura de Software 
 
-Integrantes: Royer Alekzander Duarte Gil, Ricardo Félix Valenzuela, Jenny Alejandra Moroyoqui Molina y Juan Diego Peña Valenzuela.
+Integrantes: Ricardo Félix Valenzuela, Jenny Alejandra Moroyoqui Molina y Juan Diego Peña Valenzuela.
 
 Este proyecto implementa el **CU-01 "Ingresar a la sala"**: el jugador crea su perfil (nombre, avatar y color), entra a la sala de espera y confirma que está listo. Cuando todos están listos (mínimo 2) empieza la partida y se ve el tablero. Funciona **entre varias computadoras** usando el estilo **Message Broker**.
 
