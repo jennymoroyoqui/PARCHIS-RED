@@ -1,16 +1,9 @@
 # Diseño del CU-01 "Ingresar a la sala"
-
-Este documento explica el diseño y dice **qué dibujar en StarUML** para que el modelo coincida con el código. Si un componente está en el diagrama pero no existe como módulo, o al revés, se pierden puntos.
-
----
-
 ## 1. Especificación del CU-01
-
 **Actor:** Jugador. **Objetivo:** entrar a la sala de espera y empezar la partida.
 **Precondición:** el broker y el ServidorSala están corriendo (en la versión mock no hace falta).
 
 ### Flujo básico (FB)
-
 1. El sistema muestra **"Crea tu perfil de juego"**.
 2. El jugador escribe su nombre, elige avatar y color y presiona **CONTINUAR**.
 3. El sistema valida, **guarda el perfil** (MySQL) y mete al jugador en la sala.
@@ -28,10 +21,6 @@ Este documento explica el diseño y dice **qué dibujar en StarUML** para que el
 | **A3** Color ocupado | Paso 3: otro jugador ya eligió ese color (con 4 colores, también limita la sala a 4) | "El color X ya lo eligió otro jugador" | Fachada (mock y real) |
 | **A4** Partida iniciada | Paso 3: la partida ya empezó | "La partida ya comenzó" | Fachada (mock y real) |
 | **A5** Salir | Paso 4 o 5: el jugador presiona SALIR | Se libera su lugar y color; los demás lo ven; regresa a "Crea tu perfil" | Fachada |
-
-El manual pide que el mock falle en **A2 y A3**: `FachadaSalaMock` lo hace porque ya trae a "Sofia" con el color rojo.
-
----
 
 ## 2. Capas
 
@@ -53,17 +42,13 @@ El manual pide que el mock falle en **A2 y A3**: `FachadaSalaMock` lo hace porqu
 └─────────────────────────┘      └─────────────────────────┘
 ```
 
-Reglas que respetamos (son de la lista de "errores que cuestan puntos"):
-
 * Las pantallas y `ControlSala` **nunca** nombran a `FachadaSalaMock`, `FachadaSala` ni a un DAO. Solo la fábrica (`FabricaFachadas`, `FabricaDAO`) los conoce.
 * `PerfilBO` usa el DAO **por su interfaz** (`IPerfilDAO`). Todo el SQL está en `PerfilDAOMySQL`.
 * La contraseña de MySQL está en `bd.properties`, que está en `.gitignore`.
 * `IFachadaSala` no cambió entre el Hito 2A y el 2B.
-* No hay funciones extra (ni chat, ni guardar partidas, ni ranking). El prototipo de mensajes es el que pide el manual en el punto 6 del Hito 2A, no una función del juego.
-
 ---
 
-## 3. Vista de componentes (un módulo de Maven por componente)
+## 3. Vista de componentes
 
 | Componente | Depende de | Interfaz que ofrece |
 |---|---|---|
@@ -77,12 +62,7 @@ Reglas que respetamos (son de la lista de "errores que cuestan puntos"):
 | ServidorSala | InterfacesSala, Broker, Persistencia | (programa servidor) |
 | Persistencia | driver MySQL | `IPerfilDAO` |
 
-En StarUML (**Component View**): un componente por renglón, con el mismo nombre que el módulo, y flechas de dependencia como en la columna "Depende de". Usen la notación de interfaz ofrecida/requerida (bolita y media luna) para `IFachadaSala`, `IPerfilDAO` y el `ClienteBroker`.
-
----
-
 ## 4. DTOs (paquete `Negocios/DTO` del modelo)
-
 | DTO | Atributos | Para qué |
 |---|---|---|
 | `PerfilDTO` | nombre, avatar, color | Lo que captura el jugador (pantalla → fachada → servidor) |
@@ -96,8 +76,7 @@ En StarUML (**Component View**): un componente por renglón, con el mismo nombre
 
 ---
 
-## 5. Pantallas (iguales al storyboard)
-
+## 5. Pantallas
 | Pantalla | Storyboard | Llama a ControlSala |
 |---|---|---|
 | `PantallaPerfil` | "Crea tu perfil de juego" | `continuar(nombre, avatar, color)` |
@@ -153,22 +132,6 @@ En StarUML (**Component View**): un componente por renglón, con el mismo nombre
 
 ---
 
-## 7. Vista de despliegue
-
-```
-«device» Computadora 1                       «device» Computadora 2
- ├─ «executable» MainBroker (puerto 5000)     └─ «executable» MainCliente (Presentacion)
- ├─ «executable» MainServidorSala                   │ TCP/IP (socket) → IP de la computadora 1 :5000
- ├─ «executable» MainCliente (Presentacion)
- └─ «database» MySQL (base "parchis")
-```
-
----
-
-## 8. Dónde está cada cosa en el modelo de StarUML
-
-El modelo actualizado es `parchis-modelo4+1vistas-unidad2.mdj` (el mismo modelo de la Unidad I con lo nuevo agregado). Todo lo de la Unidad I se conservó; solo se borraron los subsistemas de ejemplo vacíos de la plantilla (`subsistema_1` y `subsistema_N`).
-
 | Vista | Paquete en el modelo | Diagramas |
 |---|---|---|
 | Casos de uso | `Use Case Model` | **CU-01 Ingresar a la sala** (la especificación completa está en la *Documentation* del caso de uso) |
@@ -186,5 +149,3 @@ El modelo actualizado es `parchis-modelo4+1vistas-unidad2.mdj` (el mismo modelo 
 | Infraestructura | `Diseño / Infraestructura / Broker` | Broker: diagrama de clases |
 | Componentes | `Component View` | Vista de componentes (Unidad II): los 9 módulos y las interfaces `IFachadaSala` e `IPerfilDAO` |
 | Despliegue | `Deployment View` | Vista de despliegue (Unidad II) |
-
-Si cambian el código, actualicen también el modelo: **todo lo del modelo debe existir en el código con el mismo nombre**, y al revés.
