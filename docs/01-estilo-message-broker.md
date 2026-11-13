@@ -1,14 +1,10 @@
 # Justificación del estilo: Message Broker (Equipo 5)
-
-> Entregable del Hito 2A: "por qué ese estilo atiende los escenarios de calidad de la Unidad I".
-> **Ojo:** los escenarios de abajo están escritos con base en el enunciado del proyecto. Si en la Unidad I escribieron otros, cámbienlos por los suyos y ajusten la tabla de la sección 4.
-
 ## 1. ¿Qué es un Message Broker?
 
-Es un estilo donde los componentes **no se comunican directamente** entre sí. Todos se conectan a un intermediario, **el broker**, y le mandan mensajes. El broker los **reenvía** a quien esté interesado.
+Es un estilo donde los componentes no se comunican directamente entre sí. Todos se conectan a un intermediario, el broker, y le mandan mensajes. El broker los reenvía a quien esté interesado.
 
-* Un componente se **suscribe** a un *canal* ("quiero recibir lo que llegue a `sala.eventos`").
-* Otro componente **publica** un mensaje en ese canal.
+* Un componente se suscribe a un canal ("quiero recibir lo que llegue a sala.eventos").
+* Otro componente publica un mensaje en ese canal.
 * El broker entrega el mensaje a todos los suscritos.
 
 Así nadie necesita saber la IP ni la existencia de los demás: solo conoce al broker.
