@@ -19,6 +19,10 @@
         <module>DTOs</module>
         <module>InterfacesSala</module>
         <module>Persistencia</module>
+        <!-- Parte 2: CU-01 funcionando sobre el mock -->
+        <module>SalaMock</module>
+        <module>Fabrica</module>
+        <module>Presentacion</module>
     </modules>
 
     <properties>
